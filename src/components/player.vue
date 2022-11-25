@@ -132,7 +132,7 @@
 
       this.player.addEventListener('timeupdate', this._onTimeUpdate)
 
-      this.$eventBus.$on('remove-record', () => {
+      this.$on('remove-record', () => {
         this._resetProgress()
       })
     },

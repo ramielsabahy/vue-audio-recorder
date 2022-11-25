@@ -291,12 +291,12 @@
       Uploader
     },
     mounted () {
-      this.$eventBus.$on('start-upload', () => {
+      this.$on('start-upload', () => {
         this.isUploading = true
         this.beforeUpload && this.beforeUpload('before upload')
       })
 
-      this.$eventBus.$on('end-upload', (msg) => {
+      this.$on('end-upload', (msg) => {
         this.isUploading = false
 
         if (msg.status === 'success') {
@@ -332,7 +332,7 @@
       removeRecord (idx) {
         this.recordList.splice(idx, 1)
         this.$set(this.selected, 'url', null)
-        this.$eventBus.$emit('remove-record')
+        this.$emit('remove-record')
       },
       choiceRecord (record) {
         if (this.selected === record) {
